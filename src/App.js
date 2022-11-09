@@ -8,8 +8,7 @@ import Todos from './pages/Todos/Todos';
 import Profile from './components/Profile/Profile';
 import SingleEmployeeTodo from './components/SingleEmployeeTodo/SingleEmployeeTodo';
 
-export const EmployeeContext = createContext({employees:employees,setEmpoloyeees:() => {}});
-
+let EmployeeContext;
 function App() {
 
   const [employees,setEmpoloyeees]=useState([
@@ -25,7 +24,7 @@ function App() {
     {
       id:2,
       name:'Employee 2',
-      Designationa:'Software Engineer',
+      designation:'Software Engineer',
       email:'employee2@gmail.com',
       phone:'0177777777777',
       tasks:[]
@@ -34,7 +33,7 @@ function App() {
     {
       id:3,
       name:'Employee 3',
-      Designationa:'Software Engineer',
+      designation:'Software Engineer',
       email:'employee3@gmail.com',
       phone:'0177777777777',
       tasks:[]
@@ -43,7 +42,7 @@ function App() {
     {
       id:4,
       name:'Employee 4',
-      Designationa:'Software Engineer',
+      designation:'Software Engineer',
       email:'employee4@gmail.com',
       phone:'0177777777777',
       tasks:[]
@@ -52,7 +51,7 @@ function App() {
     {
       id:5,
       name:'Employee 5',
-      Designationa:'Software Engineer',
+      designation:'Software Engineer',
       email:'employee1@gmail.com',
       phone:'0177777777777',
       tasks:[]
@@ -60,6 +59,7 @@ function App() {
     },
   ])
   const value = {employees,setEmpoloyeees};
+    EmployeeContext = createContext({employees,setEmpoloyeees:() => {setEmpoloyeees(employees)}});
 
 
   return (
@@ -81,3 +81,4 @@ function App() {
 }
 
 export default App;
+export  {EmployeeContext}; 
