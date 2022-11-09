@@ -97,10 +97,20 @@ const Profile = () => {
                                 {' '}
                                 <button
                                     type='button'
-                                    class='btn btn-outline-danger'
+                                    class='btn btn-outline-danger outline-0 border-0'
                                     disabled
                                 >
-                                    Delete
+                                    Not Applicable
+                                </button>
+                            </td>
+                            <td>
+                                {' '}
+                                <button
+                                    type='button'
+                                    class='btn btn-outline-danger outline-0 border-0'
+                                    disabled
+                                >
+                                    Not Applicable
                                 </button>
                             </td>
                         </tr>
@@ -123,10 +133,10 @@ const Profile = () => {
                                 {' '}
                                 <button
                                     type='button'
-                                    class='btn btn-outline-danger'
+                                    class='btn btn-outline-danger outline-0 border-0'
                                     disabled
                                 >
-                                    Delete
+                                    Not Applicable
                                 </button>
                             </td>
                             <td>
