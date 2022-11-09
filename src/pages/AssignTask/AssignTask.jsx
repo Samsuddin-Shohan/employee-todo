@@ -54,23 +54,27 @@ const AssignTask = () => {
                         ))}
                     </DropdownButton>
                 </div>
-                <div style={{ textAlign: 'left' }}>
-                    <h4 style={{ marginBottom: '16px' }}>
-                        Create todo form {`Employee ${value}`}
-                    </h4>
-                    <input
-                        type='text'
-                        placeholder='Enter todos'
-                        value={inputValue}
-                        onChange={(e) => setIntputValue(e.target.value)}
-                    />
-                    <button
-                        className='btn btn-success ms-1 rounded-1 p-0 px-2 '
-                        onClick={handleCreateTodo}
-                    >
-                        create
-                    </button>
-                </div>
+                {dropdownTitle == 'Select Employee' ? (
+                    ''
+                ) : (
+                    <div style={{ textAlign: 'left' }}>
+                        <h4 style={{ marginBottom: '16px' }}>
+                            Create todo form {`Employee ${value}`}
+                        </h4>
+                        <input
+                            type='text'
+                            placeholder='Enter todos'
+                            value={inputValue}
+                            onChange={(e) => setIntputValue(e.target.value)}
+                        />
+                        <button
+                            className='btn btn-success ms-1 rounded-1 p-0 px-2 '
+                            onClick={handleCreateTodo}
+                        >
+                            create
+                        </button>
+                    </div>
+                )}
             </Container>
         </div>
     );
