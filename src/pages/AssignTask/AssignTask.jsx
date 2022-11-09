@@ -8,11 +8,25 @@ import { EmployeeContext } from '../../App';
 const AssignTask = () => {
     const [value, setValue] = useState('');
     const [dropdownTitle, setDropdownTitle] = useState('Select Employee');
+    const [inputValue, setIntputValue] = useState('');
     const { employees, setEmployees } = useContext(EmployeeContext);
     const handleSelect = (e) => {
-        console.log(e);
+        // console.log(e);
         setDropdownTitle(`employee ${e}`);
         setValue(e);
+    };
+    const handleCreateTodo = (e) => {
+        let newEmployees = [...employees];
+        console.log(newEmployees);
+        const taskLength = newEmployees[value - 1].tasks.length;
+        console.log(taskLength);
+
+        newEmployees[value - 1].tasks.push({
+            id: taskLength + 1,
+            title: inputValue,
+            isCompleted: false,
+        });
+        setEmployees(newEmployees);
     };
     return (
         <div>
@@ -44,8 +58,16 @@ const AssignTask = () => {
                     <h4 style={{ marginBottom: '16px' }}>
                         Create todo form {`Employee ${value}`}
                     </h4>
-                    <input type='text' placeholder='Enter todos' />
-                    <button className='btn btn-success ms-1 rounded-1 p-0 px-2 '>
+                    <input
+                        type='text'
+                        placeholder='Enter todos'
+                        value={inputValue}
+                        onChange={(e) => setIntputValue(e.target.value)}
+                    />
+                    <button
+                        className='btn btn-success ms-1 rounded-1 p-0 px-2 '
+                        onClick={handleCreateTodo}
+                    >
                         create
                     </button>
                 </div>
