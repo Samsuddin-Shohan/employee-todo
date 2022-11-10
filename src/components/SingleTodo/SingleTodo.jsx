@@ -4,13 +4,13 @@ import './SingleTodo.css';
 
 const SingleTodo = ({ task, profileId }) => {
     const [isChecked, setIsChecked] = useState(task.isCompleted);
-    const { employees, setEmployees } = useContext(EmployeeContext);
+    const { employees, setEmpoloyeees } = useContext(EmployeeContext);
     const [deleted, setDeleted] = useState(false);
     const currentProfile = employees.find(
         (employee) => employee.id == profileId
     );
     let currentProfileTasks = currentProfile.tasks;
-    console.log(currentProfile, currentProfileTasks);
+    // console.log(currentProfile, currentProfileTasks);
     const handleChange = (id) => {
         const newEmployees = [...employees];
 
@@ -19,18 +19,23 @@ const SingleTodo = ({ task, profileId }) => {
         } else {
             newEmployees[profileId - 1].tasks[id - 1].isCompleted = true;
         }
-        setDeleted(true);
-        setEmployees(newEmployees);
+        setIsChecked(!isChecked);
+        setEmpoloyeees(newEmployees);
+        // console.log('task deleted');
     };
     const handleDelete = (id) => {
         let newEmployees = [...employees];
+
         currentProfileTasks = currentProfileTasks.filter(
             (task) => task.id != id
         );
         newEmployees[profileId - 1].tasks = currentProfileTasks;
-        setEmployees(newEmployees);
-
+        // console.log(newEmployees);
         alert('Todo delete');
+        setDeleted(!deleted);
+        console.log('task deleted');
+
+        setEmpoloyeees(newEmployees);
     };
     return (
         <div>
