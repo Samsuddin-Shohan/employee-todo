@@ -14,14 +14,20 @@ const SingleTodo = ({ task, profileId }) => {
     const handleChange = (id) => {
         const newEmployees = [...employees];
 
-        if (newEmployees[profileId - 1].tasks[id - 1].isCompleted) {
-            newEmployees[profileId - 1].tasks[id - 1].isCompleted = false;
+        let currentTaskIndex = currentProfile.tasks.findIndex(
+            (task) => task.id == id
+        );
+        if (newEmployees[profileId - 1].tasks[currentTaskIndex].isCompleted) {
+            newEmployees[profileId - 1].tasks[
+                currentTaskIndex
+            ].isCompleted = false;
         } else {
-            newEmployees[profileId - 1].tasks[id - 1].isCompleted = true;
+            newEmployees[profileId - 1].tasks[
+                currentTaskIndex
+            ].isCompleted = true;
         }
         setIsChecked(!isChecked);
         setEmpoloyeees(newEmployees);
-        // console.log('task deleted');
     };
     const handleDelete = (id) => {
         let newEmployees = [...employees];

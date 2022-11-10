@@ -5,6 +5,7 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { EmployeeContext } from '../../App';
 import { Link } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 
 const AssignTask = () => {
     const [value, setValue] = useState('');
@@ -23,7 +24,7 @@ const AssignTask = () => {
         console.log(taskLength);
 
         newEmployees[value - 1].tasks.push({
-            id: taskLength + 1,
+            id: uuidv4(),
             title: inputValue,
             isCompleted: false,
         });
