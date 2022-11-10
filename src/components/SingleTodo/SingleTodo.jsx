@@ -28,8 +28,9 @@ const SingleTodo = ({ task, profileId }) => {
             (task) => task.id != id
         );
         newEmployees[profileId - 1].tasks = currentProfileTasks;
-        alert('Todo delete');
         setEmployees(newEmployees);
+
+        alert('Todo delete');
     };
     return (
         <div>

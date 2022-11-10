@@ -26,6 +26,8 @@ const AssignTask = () => {
             title: inputValue,
             isCompleted: false,
         });
+        // alert('todo created');
+        setIntputValue('');
         setEmployees(newEmployees);
     };
     return (
