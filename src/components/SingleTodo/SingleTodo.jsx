@@ -54,6 +54,7 @@ const SingleTodo = ({ task, profileId }) => {
                     paddingLeft: '2rem',
                     borderRadius: '1rem',
                     border: '2px solid #001253',
+                    width: '50%',
                 }}
             >
                 <input
