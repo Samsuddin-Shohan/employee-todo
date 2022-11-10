@@ -37,15 +37,24 @@ const SingleTodo = ({ task, profileId }) => {
         );
         newEmployees[profileId - 1].tasks = currentProfileTasks;
         // console.log(newEmployees);
-        alert('Todo delete');
+        // alert('Todo delete');
         setDeleted(!deleted);
-        console.log('task deleted');
+        // console.log('task deleted');
 
         setEmpoloyeees(newEmployees);
     };
     return (
         <div>
-            <div style={{ marginBottom: '1rem' }}>
+            <div
+                style={{
+                    marginBottom: '.3rem',
+                    color: '#FCFBF9',
+                    background: '#98B6EC',
+                    padding: '.2rem',
+                    paddingLeft: '2rem',
+                    borderRadius: '1rem',
+                }}
+            >
                 <input
                     type='checkbox'
                     defaultChecked={isChecked}
@@ -60,7 +69,7 @@ const SingleTodo = ({ task, profileId }) => {
                 </span>
                 <span style={{ marginLeft: '1rem' }}>
                     <button
-                        className='btn btn-danger btn-sm'
+                        className='btn btn-outline-danger btn-sm'
                         onClick={() => handleDelete(task.id)}
                     >
                         Delete

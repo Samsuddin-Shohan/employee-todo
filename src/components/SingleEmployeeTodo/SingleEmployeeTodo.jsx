@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Container } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { EmployeeContext } from '../../App';
 import NavBar from '../shared/NavBar';
 import SingleTodo from '../SingleTodo/SingleTodo';
@@ -16,20 +16,28 @@ const SingleEmployeeTodo = () => {
             <Container>
                 <div
                     style={{
-                        textAlign: 'center',
                         paddingTop: '10%',
-                        marginBottom: '3rem',
+                        margin: 'auto auto',
                     }}
                 >
-                    <h1 style={{ marginBottom: '2rem' }}>Employee - {id} </h1>
-                    <div>
-                        {currentEmployeeTasks.length == 0
-                            ? 'No task here'
-                            : currentEmployeeTasks.map((task) => (
-                                 <SingleTodo task={task} key={task.id} profileId={id}>
-
-                                 </SingleTodo>
-                              ))}
+                    <h1 style={{ marginBottom: '2rem', textAlign: 'center' }}>
+                        Employee - {id}{' '}
+                    </h1>
+                    <div style={{ maxWidth: '' }}>
+                        {currentEmployeeTasks.length == 0 ? (
+                            <div>
+                                <p className='text-success'>No Task Here!!</p>
+                                <Link to={'/assigntask'}>Assign task</Link>
+                            </div>
+                        ) : (
+                            currentEmployeeTasks.map((task) => (
+                                <SingleTodo
+                                    task={task}
+                                    key={task.id}
+                                    profileId={id}
+                                ></SingleTodo>
+                            ))
+                        )}
                     </div>
                 </div>
             </Container>
