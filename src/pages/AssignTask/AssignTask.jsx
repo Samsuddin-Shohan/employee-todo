@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { EmployeeContext } from '../../App';
+import { Link } from 'react-router-dom';
 
 const AssignTask = () => {
     const [value, setValue] = useState('');
@@ -75,6 +76,18 @@ const AssignTask = () => {
                         >
                             create
                         </button>
+                        <Link
+                            style={{
+                                display: 'block',
+                                marginTop: '1rem',
+                                color: 'green',
+                                textDecoration: 'none',
+                            }}
+                            to={`/todos/${value}`}
+                        >
+                            {' '}
+                            See Todo of Employee {value}{' '}
+                        </Link>
                     </div>
                 )}
             </Container>
